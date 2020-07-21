@@ -45,12 +45,12 @@ def rps():
             status += "パー"
         status += "</p>"
 
-        # resultにじゃんけんの結果を格納する
-        result = ""
-        # ヒント
-        # if userrps - comrps == 0:
-        #     result = "<p>あいこ！</p>"
-
+        if userrps - comrps == 0:
+            result = "<p>あいこ！</p>"
+        elif userrps - comrps == -1 or userrps - comrps == 2:
+            result = "<p>あなたの勝ち！</p>"
+        else:
+            result = "<p>コンピュータの勝ち！</p>"
         return (HTMLHEAD + status + result + HTMLFOOT)
     else:
         return (HTMLHEAD + HTMLFOOT)
