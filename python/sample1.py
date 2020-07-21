@@ -24,8 +24,11 @@ HTMLFOOT = """
 
 @app.route("/")
 def numguess():
+    # もしクエリパラメータのnameがセットされており、かつ長さが0以上だった場合
     if ("name" in request.args and len(request.args["name"]) > 0):
+        # HTMLHEADとHello, [名前]とHTMLFOOTをクライアントに返す
         return (HTMLHEAD + "<h1>Hello, " + request.args["name"] + ".</h1>" + HTMLFOOT)
+    # HTMLHEADとWelcome, anonymousとHTMLFOOTをクライアントに返す
     return (HTMLHEAD + "<h1>Welcome, anonymous.</h1>" + HTMLFOOT)
 
 app.run(host = "0.0.0.0", port = 8800)
