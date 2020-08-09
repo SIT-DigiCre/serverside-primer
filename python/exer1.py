@@ -3,7 +3,6 @@ from flask import Flask, request
 import random
 
 app = Flask(__name__)
-PORT = 8800
 HTMLHEAD = """
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -55,4 +54,4 @@ def rps():
     else:
         return (HTMLHEAD + HTMLFOOT)
 
-app.run(host = "0.0.0.0", port = 8800)
+app.run(host = "0.0.0.0", port = 8000)

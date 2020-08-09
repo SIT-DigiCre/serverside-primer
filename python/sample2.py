@@ -3,7 +3,6 @@ from flask import Flask, session, request
 import random
 
 app = Flask(__name__)
-PORT = 8800
 HTMLHEAD = """
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -69,4 +68,4 @@ def numguess():
     return (HTMLHEAD + res + HTMLFOOT)
 
 app.secret_key = "がっこうぐらし！"
-app.run(host = "0.0.0.0", port = 8800)
+app.run(host = "0.0.0.0", port = 8000)

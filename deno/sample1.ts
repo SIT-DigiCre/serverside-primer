@@ -1,5 +1,5 @@
 import { serve } from 'https://deno.land/std/http/server.ts'
-const s = serve({ port: 3000 })
+const s = serve({ port: 8000 })
 
 const HTMLHEAD = `
 <!DOCTYPE html>
