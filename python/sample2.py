@@ -68,4 +68,4 @@ def numguess():
     return (HTMLHEAD + res + HTMLFOOT)
 
 app.secret_key = "がっこうぐらし！"
-app.run(host = "0.0.0.0", port = 8000)
+app.run(host="0.0.0.0", port=8000)

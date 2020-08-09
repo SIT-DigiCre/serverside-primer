@@ -30,4 +30,4 @@ def numguess():
     # HTMLHEADとWelcome, anonymousとHTMLFOOTをクライアントに返す
     return (HTMLHEAD + "<h1>Welcome, anonymous.</h1>" + HTMLFOOT)
 
-app.run(host = "0.0.0.0", port = 8000)
+app.run(host="0.0.0.0", port=8000)
