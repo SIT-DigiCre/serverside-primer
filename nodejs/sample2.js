@@ -27,7 +27,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.get("/", (req, res) => {
+app.get("/countup", (req, res) => {
     if (req.session.count === undefined) {
         req.session.count = 0;
     } else {

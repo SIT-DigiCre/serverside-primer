@@ -20,8 +20,8 @@ HTMLFOOT = """
 </html>
 """
 
-@app.route("/", methods=["get", "post"])
-def numguess():
+@app.route("/countup", methods=["get", "post"])
+def countup():
     # もしリクエストメソッドがPOSTだった、またはセッション情報がセットされていなかった場合
     if (request.method == "POST" or "count" not in session):
         # セッション情報を0で初期化

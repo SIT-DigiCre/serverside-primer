@@ -22,7 +22,7 @@ HTMLFOOT = """
 """
 
 @app.route("/")
-def numguess():
+def welcome():
     # もしクエリパラメータのnameがセットされており、かつ長さが0以上だった場合
     if ("name" in request.args and len(request.args["name"]) > 0):
         # HTMLHEADとHello, [名前]とHTMLFOOTをクライアントに返す
