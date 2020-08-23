@@ -17,6 +17,8 @@ func main() {
 	router.GET("/", welcome)
 	router.GET("/countup", countup)
 	router.POST("/countup", countupReset)
+	router.GET("/numguess", numguess)
+	router.POST("/numguess", numguessPost)
 
 	router.Run(":8000")
 }
