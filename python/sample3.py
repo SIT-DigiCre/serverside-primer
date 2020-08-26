@@ -1,26 +1,8 @@
 #!/usr/bin/env python3
-from flask import Flask, session, request
+from flask import Flask, session, request, render_template
 import random
 
 app = Flask(__name__)
-HTMLHEAD = """
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Guess Number</title>
-        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-    </head>
-    <body>
-        <form action="" method="post">
-"""
-HTMLFOOT = """
-            <p>Input Your Guess: <input type="text" name="num" /></p>
-            <p><input type="submit" /></p>
-        </form>
-    </body>
-</html>
-"""
 
 @app.route("/numguess", methods=["get", "post"])
 def numguess():
@@ -45,27 +27,27 @@ def numguess():
             # カウントをセッション情報に格納
             session["count"] = count
             # 試行回数を出力
-            res = "<p>" + str(count) + "tries, " + str(num) + ": "
+            res = str(count) + "tries, " + str(num) + ": "
             # もしnumが乱数より小さかった場合
             if (num < rnum):
                 # small!と出力
-                res += "small!</p>"
+                res += "small!"
             # もしnumが乱数より大きかった場合
             elif (num > rnum):
                 # big!と出力
-                res += "big!</p>"
+                res += "big!"
             # それ以外（numが乱数と一致した場合）
             else:
                 # Congratulationsと出力
-                res += "Congratulations!</p>"
+                res += "Congratulations!"
                 # セッション情報から乱数を削除
                 session.pop("rnum")
                 # セッション情報からカウントを削除
                 session.pop("count")
         except:
-            res = "<p>error</p>"
+            res = "error"
     # 結果をクライアントに返す
-    return (HTMLHEAD + res + HTMLFOOT)
+    return render_template("sample3.html", res=res)
 
 app.secret_key = "がっこうぐらし！"
 app.run(host="0.0.0.0", port=8000)
