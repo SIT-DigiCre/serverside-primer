@@ -4,21 +4,6 @@ var bodyParser = require("body-parser");
 var app = express();
 
 HTMLHEAD = `
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Guess Number</title>
-        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-    </head>
-    <body>
-        <form action="" method="post">
-`
-HTMLFOOT = `
-            <p>Input Your Guess: <input type="text" name="num" /></p>
-            <p><input type="submit" /></p>
-        </form>
-    </body>
 `
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -29,7 +14,7 @@ app.use(session({
 }));
 
 app.get("/numguess", (req, res) => {
-    res.status(200).send(HTMLHEAD + HTMLFOOT);
+    res.status(200).render("sample3.ejs", { res: "" });;
 });
 
 app.post("/numguess", (req, res) => {
@@ -44,7 +29,6 @@ app.post("/numguess", (req, res) => {
         count = parseInt(req.session.count);
         count += 1;
         req.session.count = count;
-        out += "<p>";
         if (num !== NaN && rnum !== NaN) {
             out += count + "tries, " + num + ": ";
             if (num < rnum) {
@@ -59,9 +43,8 @@ app.post("/numguess", (req, res) => {
         } else {
             out += "error";
         }
-        out += "</p>";
     }
-    res.status(200).send(HTMLHEAD + out + HTMLFOOT);
+    res.status(200).render("sample3.ejs", { res: out });;
 });
 
 app.listen(8000);
