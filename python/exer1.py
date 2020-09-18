@@ -27,7 +27,7 @@ def rps():
         result = ""
         # ヒント
         # if userrps - comrps == 0:
-        #     result = "<p>あいこ！</p>"
+        #     result = "あいこ！"
 
         return render_template("exer1.html", status=status, result=result)
     else:
