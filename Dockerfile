@@ -13,9 +13,9 @@ RUN echo "password\npassword" | passwd user
 USER user
 WORKDIR /home/user
 
-COPY . /home/user/serverside-primer
+COPY envinstall.sh .
+RUN ./envinstall.sh && rm envinstall.sh
 
-RUN cd ~/serverside-primer && \
-    ./installscript.sh
+COPY . /home/user/serverside-primer
 
 CMD sudo service ssh start && sudo service apache2 start && /bin/bash
