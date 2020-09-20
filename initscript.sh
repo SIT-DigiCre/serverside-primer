@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo apt update
+sudo DEBIAN_FRONTEND=noninteractive apt install -y tzdata
 sudo apt install -y git
 git clone https://github.com/SIT-DigiCre/serverside-primer.git ~/serverside-primer
 cd ~/serverside-primer
