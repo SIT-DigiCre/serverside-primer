@@ -5,7 +5,7 @@ import random
 app = Flask(__name__)
 
 @app.route("/janken", methods=["GET", "POST"])
-def rps():
+def janken():
     if request.method == "POST":
         if request.form["rps"] == "グー":
             userrps = 0

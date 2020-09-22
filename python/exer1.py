@@ -5,7 +5,7 @@ import random
 app = Flask(__name__)
 
 @app.route("/janken", methods=["GET", "POST"])
-def rps():
+def janken():
     if request.method == "POST":
         if request.form["rps"] == "グー":
             userrps = 0
@@ -23,7 +23,7 @@ def rps():
         elif comrps == 2:
             status += "パー"
 
-        # resultにじゃんけんの結果を格納する
+        # TODO: resultにじゃんけんの結果を格納する
         result = ""
         # ヒント
         # if userrps - comrps == 0:
