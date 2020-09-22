@@ -2,8 +2,6 @@
 from flask import Flask, session, request, render_template
 
 app = Flask(__name__)
-HTMLHEAD = """
-"""
 
 @app.route("/countup", methods=["get", "post"])
 def countup():
